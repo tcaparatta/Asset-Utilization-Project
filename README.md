@@ -1,6 +1,5 @@
 # Asset Utilization Project
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 
 An exploratory data science project analyzing asset utilization patterns in an unlabeled asset dataset. The goal is to assess long-term performance and cost impact when high-usage assets are retained beyond their typical lifecycle.
