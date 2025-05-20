@@ -1,12 +1,11 @@
-# 🚛 Tractor Utilization Project
+# 🚚 Asset Utilization Project
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 
-An exploratory data science project analyzing tractor (semi-truck) utilization in a transportation fleet. The goal is to assess performance and long-term cost impact if no tractors are replaced, even after exceeding standard mileage limits.
+An exploratory data science project analyzing asset utilization patterns in an unlabeled asset dataset. The goal is to assess long-term performance and cost impact when high-usage assets are retained beyond their typical lifecycle.
 
-> ⚠️ All data in this repository is randomly generated and anonymized for privacy. However, the methods and insights are applicable to real-world fleets.
+> ⚠️ All data in this repository is randomly generated and anonymized. The methods and insights, however, are applicable to many operational assets across various industries.
 
 ---
 
@@ -19,55 +18,84 @@ An exploratory data science project analyzing tractor (semi-truck) utilization i
 - [Usage](#-usage)
 - [Example](#-example)
 - [Notebooks](#-notebooks-included)
-- [License](#-license)
+
 
 ---
 
 ## 📌 Overview
 
-Tractors in commercial fleets typically serve two functions:
+Many operational assets serve multiple usage roles. For this study, we consider two general task types:
 
-- **Line Haul**: Long-distance freight between hubs. Assigned to newer tractors due to reliability and fuel efficiency.
-- **Pickup & Delivery (P&D)**: Local deliveries. Assigned to older tractors due to shorter, lower-mileage routes.
+- **Task A**: High-usage operations typically requiring newer, more reliable assets.
+- **Task B**: Lower-usage operations, often assigned to older or less critical units.
 
-This project examines a fleet where roles are **not** explicitly labeled. We'll use data-driven techniques to infer usage roles and predict operational impacts when **tractors over 750,000 miles are not retired**.
+This project analyzes a group of assets with **no explicit labeling** of asset roles. The aim is to use clustering and predictive modeling to infer operational patterns and assess the impact of **not retiring high-usage units**, even when exceeding the typical usage threshold of **750,000**.
+
+> Assets operating beyond this threshold tend to incur significantly higher maintenance costs, which will be modeled in the final analysis.
 
 ---
 
 ## 🎯 Project Goals
 
-- Automatically classify tractor roles using unsupervised learning
-- Forecast annual mileage growth
-- Estimate increased maintenance cost for high-mileage tractors
-- Build a reusable Python analysis pipeline
+- Automatically infer asset roles using unsupervised learning
+- Forecast next-year usage by task type
+- Quantify cost implications of exceeding standard usage thresholds
+- Provide a reusable and scalable analysis pipeline
 
 ---
 
 ## 🧪 Project Steps
 
 1. **Data Cleaning**  
-   Prepare and organize raw input data.
+   Prepare and validate raw asset usage data.
 
-2. **Classification**  
-   Use **K-Means Clustering** to identify Line Haul vs. P&D units.
+2. **Role Inference**  
+   Apply **K-Means Clustering** to classify assets into Task A and Task B based on behavioral patterns.
 
 3. **Segmentation**  
-   Group tractors into Line Haul and P&D categories.
+   Organize assets into operational role groups for analysis.
 
-4. **Forecasting (Line Haul)**  
-   Apply **Linear Regression** to estimate next year’s mileage.
+4. **Forecasting (Task A)**  
+   Use **Linear Regression** to estimate future mileage for Task A assets, which typically follow consistent usage trends.
 
-5. **Forecasting (P&D)**  
-   Use **median** mileage to estimate next year’s usage.
+5. **Forecasting (Task B)**  
+   Use **median-based projection** for Task B assets, reflecting more variable and less predictable usage.
 
-6. **Cost Calculation**  
-   Determine how many tractors exceed 750k miles and estimate added maintenance costs.
+6. **Cost Analysis**  
+   Identify assets exceeding 750k miles and estimate increased maintenance costs.
 
 ---
 
 ## 💻 Installation
 
 ```bash
-git clone https://github.com/tcaparatta/tractor-utilization-project.git
-cd tractor-utilization-project
+git clone https://github.com/yourusername/asset-utilization-project.git
+cd asset-utilization-project
 pip install -r requirements.txt
+
+## ▶️ Usage
+Run the full analysis using the included Jupyter Notebooks:
+
+jupyter notebook initial_analysis.ipynb
+jupyter notebook asset_utilization_model.ipynb
+
+
+##🧾 Example
+
+from sklearn.cluster import KMeans
+import pandas as pd
+
+# Load and clean data
+df = pd.read_csv("asset_data.csv")
+clean_df = preprocess_data(df)
+
+# Apply KMeans clustering to infer task types
+kmeans = KMeans(n_clusters=2)
+df["Cluster"] = kmeans.fit_predict(clean_df[["AvgMonthlyMileage"]])
+
+# Map clusters to generalized task types
+df["TaskType"] = df["Cluster"].map({0: "Task A", 1: "Task B"})
+
+##📂 Notebooks Included
+initial_analysis.ipynb: Full EDA, clustering, forecasting, and cost modeling.
+asset_utilization_model.ipynb: Condensed and reusable version for ongoing evaluations.
