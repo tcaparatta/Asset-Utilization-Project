@@ -69,37 +69,7 @@ This project analyzes a group of assets with **no explicit labeling** of asset r
 ## 💻 Installation
 
 ```bash
-git clone https://github.com/yourusername/asset-utilization-project.git
+git clone https://github.com/tcaparatta/asset-utilization-project.git
 cd asset-utilization-project
 pip install -r requirements.txt
 
-## ▶️ Usage
-Run the full analysis using the included Jupyter Notebooks:
-
-jupyter notebook initial_analysis.ipynb
-jupyter notebook asset_utilization_model.ipynb
-
----
-
-##🧾 Example
-
-from sklearn.cluster import KMeans
-import pandas as pd
-
-# Load and clean data
-df = pd.read_csv("asset_data.csv")
-clean_df = preprocess_data(df)
-
-# Apply KMeans clustering to infer task types
-kmeans = KMeans(n_clusters=2)
-df["Cluster"] = kmeans.fit_predict(clean_df[["AvgMonthlyMileage"]])
-
-# Map clusters to generalized task types
-df["TaskType"] = df["Cluster"].map({0: "Task A", 1: "Task B"})
-
----
-##📂 Notebooks Included
-initial_analysis.ipynb: Full EDA, clustering, forecasting, and cost modeling.
-asset_utilization_model.ipynb: Condensed and reusable version for ongoing evaluations.
-
----
