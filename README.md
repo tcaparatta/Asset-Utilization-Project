@@ -58,7 +58,7 @@ This project analyzes a group of assets with **no explicit labeling** of asset r
    Use **median-based projection** for Task B assets, reflecting more variable and less predictable usage.
 
 6. **Cost Analysis**  
-   Identify assets exceeding 750k miles and estimate increased maintenance costs.
+   Identify assets exceeding 750k uses and estimate increased maintenance costs.
 
 ---
 
