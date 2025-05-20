@@ -15,10 +15,6 @@ An exploratory data science project analyzing asset utilization patterns in an u
 - [Project Goals](#-project-goals)
 - [Project Steps](#-project-steps)
 - [Installation](#-installation)
-- [Usage](#-usage)
-- [Example](#-example)
-- [Notebooks](#-notebooks-included)
-
 
 ---
 
