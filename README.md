@@ -79,6 +79,7 @@ Run the full analysis using the included Jupyter Notebooks:
 jupyter notebook initial_analysis.ipynb
 jupyter notebook asset_utilization_model.ipynb
 
+---
 
 ##🧾 Example
 
@@ -96,6 +97,9 @@ df["Cluster"] = kmeans.fit_predict(clean_df[["AvgMonthlyMileage"]])
 # Map clusters to generalized task types
 df["TaskType"] = df["Cluster"].map({0: "Task A", 1: "Task B"})
 
+---
 ##📂 Notebooks Included
 initial_analysis.ipynb: Full EDA, clustering, forecasting, and cost modeling.
 asset_utilization_model.ipynb: Condensed and reusable version for ongoing evaluations.
+
+---
