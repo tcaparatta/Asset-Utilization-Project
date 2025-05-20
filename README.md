@@ -1,4 +1,4 @@
-# 🚚 Asset Utilization Project
+# Asset Utilization Project
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
