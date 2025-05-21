@@ -51,7 +51,7 @@ This project analyzes a group of assets with **no explicit labeling** of asset r
    Organize assets into operational role groups for analysis.
 
 4. **Forecasting (Task A)**  
-   Use **Linear Regression** to estimate future mileage for Task A assets, which typically follow consistent usage trends.
+   Use **Linear Regression** to estimate future usage for Task A assets, which typically follow consistent usage trends.
 
 5. **Forecasting (Task B)**  
    Use **median-based projection** for Task B assets, reflecting more variable and less predictable usage.
